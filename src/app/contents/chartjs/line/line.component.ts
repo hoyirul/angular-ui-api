@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { ProductCount } from 'src/app/models/product-count';
+import { Product } from 'src/app/models/product-count';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ProductService } from 'src/app/services/products/product.service';
 })
 export class LineComponent implements OnInit {
   public chart: any;
-  productCount: ProductCount[] = [];
+  productCount: Product[] = [];
 
   constructor(private productService: ProductService) { }
 
@@ -19,7 +19,7 @@ export class LineComponent implements OnInit {
   }
 
   createChart(){
-    this.productService.getCountProductByOrder().subscribe((response: ProductCount[]) => {
+    this.productService.getCountProductByOrder().subscribe((response: Product[]) => {
       this.chart = new Chart("LineChartJS", {
         type: 'line', //this denotes tha type of chart
   

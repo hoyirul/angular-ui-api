@@ -1,0 +1,28 @@
+<div class="grid place-items-center py-5">
+  <div class="block max-w-lg w-full p-6 bg-white border border-gray-200 rounded-lg shadow light:bg-gray-800 light:border-gray-700">
+    <div class="mb-5">
+      <h3 class="self-center text-xl font-semibold whitespace-nowrap light:text-white">Sign in Apps</h3>
+    </div>
+    <form>
+      <div class="mb-b">
+        <label for="name" ></label>
+      </div>
+      <div class="mb-6">
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 light:text-white">Your email</label>
+        <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-teal-500 light:focus:border-teal-500 light:shadow-sm-light" placeholder="test@example.com" required>
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 light:text-white">Your password</label>
+        <input type="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 light:bg-gray-700 light:border-gray-600 light:placeholder-gray-400 light:text-white light:focus:ring-teal-500 light:focus:border-teal-500 light:shadow-sm-light" required placeholder="password">
+      </div>
+      <div class="flex items-start mb-6">
+        <div class="flex items-center h-5">
+          <input id="terms" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-teal-300 light:bg-gray-700 light:border-gray-600 light:focus:ring-teal-600 light:ring-offset-gray-800 light:focus:ring-offset-gray-800" required>
+        </div>
+        <label for="terms" routerLinkActive="router-link-active"  class="ml-2 text-sm font-medium text-gray-900 light:text-gray-300">I agree with the <a [routerLink]="['/auth/login']" class="text-teal-600 hover:underline light:text-teal-500">terms and conditions</a></label>
+      </div>
+      <button type="submit" class="text-white bg-teal-600 hover:bg-teal-700 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center light:bg-teal-600 light:hover:bg-teal-700 light:focus:ring-teal-700">Sign in</button>
+    </form>
+
+  </div>
+</div>

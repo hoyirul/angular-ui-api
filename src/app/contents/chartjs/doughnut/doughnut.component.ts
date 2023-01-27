@@ -11,8 +11,9 @@ import { OrderService } from 'src/app/services/orders/order.service';
 export class DoughnutComponent implements OnInit {
   public chart: any;
   totalOrderByYear: OrderTotal[] = [];
-  totalAmount: number[] = [];
-  totalYearly: any[] = [];
+  dataChart: number[] = [];
+  labelChart: any[] = [];
+  createChartLblDt: any[] = [];
 
   constructor(private orderService: OrderService) { }
 
@@ -22,22 +23,18 @@ export class DoughnutComponent implements OnInit {
 
   createChart(){
     this.orderService.getTotalByYear().subscribe((response: OrderTotal[]) => {
-      for(let row of response){
-        if(row.yearly){
-          this.totalYearly.push(row.yearly);
-        }
-        if(row.total){
-          this.totalAmount.push(row.total);
-        }
+      for(let i=0;i<response.length;i++){
+        this.labelChart.push(response[i].yearly);
+        this.dataChart.push(response[i].total);
       }
 
       this.chart = new Chart("DoughnutChartJS", {
         type: 'line',
         data: {
-          labels: this.totalYearly,
+          labels: this.labelChart,
           datasets: [{
             label: 'Sales Prices Yearly',
-            data: this.totalAmount,
+            data: this.dataChart,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(255, 159, 64, 0.2)',

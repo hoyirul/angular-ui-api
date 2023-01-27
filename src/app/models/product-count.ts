@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductModel {
     count:    number;
     category: Category;
 }
@@ -9,11 +9,11 @@ export interface Category {
 
 // Converts JSON strings to/from your types
 export class Convert {
-    public static toproduct(json: string): Product[] {
+    public static toproduct(json: string): ProductModel[] {
         return JSON.parse(json);
     }
 
-    public static productToJson(value: Product[]): string {
+    public static productToJson(value: ProductModel[]): string {
         return JSON.stringify(value);
     }
 }

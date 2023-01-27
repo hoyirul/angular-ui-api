@@ -3,13 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
-  private apiURL = "http://127.0.0.1:3000/api";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,7 +24,7 @@ export class ProductService {
    * @return response()
    */
   getCountProduct() : Observable<any> {
-    return this.httpClient.get(this.apiURL + '/products/by_category')
+    return this.httpClient.get(environment.apiURL + '/products/by_category')
       .pipe(
         catchError(this.errorHandler)
       );
@@ -37,7 +36,7 @@ export class ProductService {
    * @return response()
    */
   getCountProductByOrder() : Observable<any> {
-    return this.httpClient.get(this.apiURL + '/products/by_order')
+    return this.httpClient.get(environment.apiURL + '/products/by_order')
       .pipe(
         catchError(this.errorHandler)
       );

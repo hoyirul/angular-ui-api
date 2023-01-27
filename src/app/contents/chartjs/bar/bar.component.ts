@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart }  from 'chart.js/auto';
-import { Product } from 'src/app/models/product-count';
+import { ProductModel } from 'src/app/models/product-count';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -10,7 +10,9 @@ import { ProductService } from 'src/app/services/products/product.service';
 })
 export class BarComponent implements OnInit {
   public chart: any;
-  productCount: Product[] = [];
+  productCount: ProductModel[] = [];
+  labelChart: any[] = [];
+  dataChart: number[] = [];
 
   constructor(private productService: ProductService) { }
 
@@ -19,14 +21,19 @@ export class BarComponent implements OnInit {
   }
 
   createChart(){
-    this.productService.getCountProduct().subscribe((response: Product[]) => {
+    this.productService.getCountProduct().subscribe((response: ProductModel[]) => {
+      for(let i=0; i < response.length;i++){
+        this.labelChart.push(response[i].category.category_name);
+        this.dataChart.push(response[i].count);
+      }
+
       this.chart = new Chart("BarChartJS", {
         type: 'bar',
         data: {
-          labels: [response[0].category.category_name, 'Drinks', 'Dessert'],
+          labels: this.labelChart,
           datasets: [{
             label: 'Count Product By Category',
-            data: [response[0].count, response[1].count, response[2].count],
+            data: this.dataChart,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(153, 102, 255, 0.2)',

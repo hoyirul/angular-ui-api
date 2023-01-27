@@ -3,13 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.development';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
-  private apiURL = "http://127.0.0.1:3000/api";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -25,7 +25,7 @@ export class OrderService {
    * @return response()
    */
   getTotalByYear() : Observable<any> {
-    return this.httpClient.get(this.apiURL + '/orders/by_year')
+    return this.httpClient.get(environment.apiURL + '/orders/by_year')
       .pipe(
         catchError(this.errorHandler)
       );

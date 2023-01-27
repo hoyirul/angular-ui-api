@@ -16,6 +16,7 @@ import { LineComponent } from './contents/chartjs/line/line.component';
 import { DoughnutComponent } from './contents/chartjs/doughnut/doughnut.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './contents/categories/category/category.component';
+import { PaymentComponent } from './contents/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CategoryComponent } from './contents/categories/category/category.compo
     ChartsComponent,
     LineComponent,
     DoughnutComponent,
-    CategoryComponent
+    CategoryComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

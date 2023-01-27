@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { Product } from 'src/app/models/product-count';
+import { OrderModel } from 'src/app/models/order-count.model';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -10,7 +10,9 @@ import { ProductService } from 'src/app/services/products/product.service';
 })
 export class LineComponent implements OnInit {
   public chart: any;
-  productCount: Product[] = [];
+  productCount: OrderModel[] = [];
+  labelChart: any[] = [];
+  dataChart: number[] = [];
 
   constructor(private productService: ProductService) { }
 
@@ -19,16 +21,20 @@ export class LineComponent implements OnInit {
   }
 
   createChart(){
-    this.productService.getCountProductByOrder().subscribe((response: Product[]) => {
+    this.productService.getCountProductByOrder().subscribe((response: OrderModel[]) => {
+      for(let i=0;i<response.length;i++){
+        this.labelChart.push(response[i].product.productName);
+        this.dataChart.push(response[i].count);
+      }
+
       this.chart = new Chart("LineChartJS", {
         type: 'line', //this denotes tha type of chart
   
         data: {// values on X-Axis
-          labels: ['Dimsum Udang', 'Udang Keju', 'Hakao','Lemon Tea',
-                   'Gulali'], 
+          labels: this.labelChart, 
           datasets: [{
             label: 'Product Terlaris`',
-            data: [response[0].count, response[1].count, response[2].count, response[3].count, response[4].count],
+            data: this.dataChart,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1,

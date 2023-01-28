@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   }
 
   isAuthRoute(){
-    return this.router.url === 'auth/signin' || 'auth/signup';
+    return this.router.url === 'auth/signin' && 'auth/signup';
   }
 
   title = 'angular-ui-api';

@@ -24,8 +24,8 @@ export class OrderService {
    *
    * @return response()
    */
-  getTotalByYear() : Observable<any> {
-    return this.httpClient.get(environment.apiURL + '/orders/by_year')
+  getTotalByMonth() : Observable<any> {
+    return this.httpClient.get(environment.apiURL + '/orders/monthly')
       .pipe(
         catchError(this.errorHandler)
       );

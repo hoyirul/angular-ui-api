@@ -1,4 +1,4 @@
 export interface OrderTotal{
-    yearly: string;
+    monthly: string;
     total: number;
 }

@@ -22,9 +22,9 @@ export class DoughnutComponent implements OnInit {
   }
 
   createChart(){
-    this.orderService.getTotalByYear().subscribe((response: OrderTotal[]) => {
+    this.orderService.getTotalByMonth().subscribe((response: OrderTotal[]) => {
       for(let i=0;i<response.length;i++){
-        this.labelChart.push(response[i].yearly);
+        this.labelChart.push(response[i].monthly);
         this.dataChart.push(response[i].total);
       }
 
@@ -33,7 +33,7 @@ export class DoughnutComponent implements OnInit {
         data: {
           labels: this.labelChart,
           datasets: [{
-            label: 'Sales Prices Yearly',
+            label: 'Sales Prices Monthly',
             data: this.dataChart,
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',

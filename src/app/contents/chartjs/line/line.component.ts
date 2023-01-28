@@ -33,7 +33,7 @@ export class LineComponent implements OnInit {
         data: {// values on X-Axis
           labels: this.labelChart, 
           datasets: [{
-            label: 'Product Terlaris`',
+            label: 'Best Selling Product',
             data: this.dataChart,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',

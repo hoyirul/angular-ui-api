@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Chart }  from 'chart.js/auto';
+import { OrderTotalYear } from 'src/app/models/order-year';
 import { ProductModel } from 'src/app/models/product-count';
+import { OrderService } from 'src/app/services/orders/order.service';
 import { ProductService } from 'src/app/services/products/product.service';
 
 @Component({
@@ -8,23 +10,54 @@ import { ProductService } from 'src/app/services/products/product.service';
   templateUrl: './bar.component.html',
   styleUrls: ['./bar.component.css']
 })
-export class BarComponent implements OnInit {
+export class BarComponent implements OnInit, OnChanges {
   public chart: any;
+  @Input() tahun: string = ''
   productCount: ProductModel[] = [];
+  orderTotalYear: OrderTotalYear[] = [];
   labelChart: any[] = [];
   dataChart: number[] = [];
+  year: any = 2023
+  lblDyn: any = [2022, 2023]
+  ylabel: any
+  sasa: any[] = []
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private orderService: OrderService) { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.sasa);;
+
+    console.log(this.tahun);
+    for (let i = 0; i <= this.lblDyn.length; i++) {
+      if (this.tahun == this.lblDyn[i]) {
+        this.dataChart.length = 0;
+        this.labelChart.length = 0;
+        this.ylabel = 'Testing';
+        for (let row of this.sasa) {
+          console.log(row.year);
+          if (row.year == this.tahun) {
+            this.dataChart.push(row.total);
+            this.labelChart.push(row.year);
+            console.log(row.year);
+          }
+        }
+        this.chart.update();
+        break;
+      }
+      this.ylabel = 'Average Estoque';
+    }
+  }
 
   ngOnInit(): void {
     this.createChart();
   }
 
   createChart(){
-    this.productService.getCountProduct().subscribe((response: ProductModel[]) => {
+    this.orderService.getTotalByYear().subscribe((response: OrderTotalYear[]) => {
       for(let i=0; i < response.length;i++){
-        this.labelChart.push(response[i].category.category_name);
-        this.dataChart.push(response[i].count);
+        this.labelChart.push(response[i].year);
+        this.sasa.push({year: response[i].year, total: response[i].total});
+        this.dataChart.push(response[i].total);
       }
 
       this.chart = new Chart("BarChartJS", {

@@ -19,11 +19,6 @@ export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
   getTotalByMonth() : Observable<any> {
     return this.httpClient.get(environment.apiURL + '/orders/monthly')
       .pipe(
@@ -31,11 +26,20 @@ export class OrderService {
       );
   }
 
-  /** 
-   * Write code on Method
-   *
-   * @return response()
-   */
+  getTotalByYear() : Observable<any> {
+    return this.httpClient.get(environment.apiURL + '/ordersall')
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
+  getOrderDynamic(year: string) : Observable<any> {
+    return this.httpClient.post(environment.apiURL + '/orders?year=' + year, year)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+  }
+
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

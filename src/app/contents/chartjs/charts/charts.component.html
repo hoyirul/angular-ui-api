@@ -1,7 +1,11 @@
 <div class="px-6 pt-6 2xl:container">
+  <select name="testChart" [(ngModel)]="year" #tests (change)="onSelected(tests.value)">
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+  </select>
   <div class="mb-5 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-    
-    <app-bar></app-bar>
+
+    <app-bar [tahun]="year"></app-bar>
     <app-line></app-line>
 
   </div>

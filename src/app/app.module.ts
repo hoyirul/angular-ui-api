@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './contents/categories/category/category.component';
 import { PaymentComponent } from './contents/payment/payment.component';
 import { FooterComponent } from './partials/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './partials/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
+  year: any
+
+  onSelected(value: any){
+    return this.year = value;
+  }
+
   ngOnInit(): void {
-    
+
   }
 }

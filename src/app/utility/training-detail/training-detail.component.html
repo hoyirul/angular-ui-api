@@ -1,0 +1,105 @@
+<section class="text-gray-600 h-full max-w-full py-6 px-6">
+    <div class="h-full w-full">
+      <!-- CHART MONTHLY -->
+      <div class="w-full max-w-full mx-auto bg-white shadow-sm rounded-xl border border-gray-200">
+        <header class="px-5 py-4 border-b border-gray-100">
+          <h2 class="font-semibold text-gray-800">Report Training Monthly</h2>
+        </header>
+        <div class="p-3">
+          <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+                <canvas id="training_month" height="75%" routerLink="/training-detail"></canvas>
+            </table>
+          </div>
+        </div>
+      </div><br>
+
+      <!-- CHART -->
+      <div class="w-full max-w-full mx-auto bg-white shadow-sm rounded-xl border border-gray-200">
+        <header class="px-5 py-4 border-b border-gray-100">
+          <h2 class="font-semibold text-gray-800">Report Training</h2>
+        </header>
+        <div class="p-3">
+          <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+                <canvas id="training" height="75%" routerLink="/training-detail" ></canvas>
+            </table>
+          </div>
+        </div>
+      </div><br>
+
+      <!-- TABLE -->
+      <div class="w-full max-w-full mx-auto bg-white shadow-sm rounded-xl border border-gray-200">
+        <header class="px-5 py-4 border-b border-gray-100">
+          <h2 class="font-semibold text-gray-800">Report Training Detail</h2>
+
+          <!-- FILTER -->
+          <!-- <div class="d-flex justify-content-end mt-2">
+            <span class="mx-4 text-primary" >Periode : </span>
+            <form action="">
+                <select class="form-control" style="width:auto;" name="status_filter"
+                [(ngModel)]="filterTerm" placeholder="Status">
+                    <option *ngFor="let item of tahun_filter" [value]="item"
+                        style="height: 200px; overflow:scroll;">{{item}}</option>
+                </select>
+            </form>
+          </div> -->
+        </header>
+        <div class="p-3">
+          <div class="overflow-x-auto">
+            <table class="table-auto w-full">
+              <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                <tr>
+                  <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left">ID</div>
+                  </th>
+                  <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left">Waktu</div>
+                  </th>
+                  <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left">Nama Peserta</div>
+                  </th>
+                  <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left">Nama Training</div>
+                  </th>
+                  <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left">Ringkasan</div>
+                  </th>
+                  <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-center">Status</div>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="text-sm divide-y divide-gray-100">
+                <tr *ngFor="let item of training_data |filter:filterTerm|paginate: { currentPage: currentPage, itemsPerPage: showPageaux }; let i = index">
+                  <td class="p-2 whitespace-nowrap">
+                      <div class="font-medium text-gray-800">{{(currentPage-1) * 5 + i + 1}}</div>
+                  </td>
+                  <td class="p-2 whitespace-nowrap">
+                    <div class="text-left">{{item.Date | date: 'dd/MM/YYYY' }}</div>
+                  </td>
+                  <td class="p-2 whitespace-nowrap">
+                    <div class="text-left font-medium text-green-500">{{item.Nama_Peserta}}</div>
+                  </td>
+                  <td class="p-2 whitespace-nowrap">
+                    <div class="text-left">{{item.Nama_Training}}</div>
+                  </td>
+                  <td class="p-2 whitespace-nowrap">
+                    <div class="text-left font-medium text-green-500">{{item.Ringkasan}}</div>
+                  </td>
+                  <td class="p-2 whitespace-nowrap">
+                    <div class="text-left font-medium text-green-500">{{item.status_approval == 1 ?
+                        "Approved": "Belum Approved"}}</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div><br>
+      <pagination-controls class="text-center paginate"
+      (pageChange)="currentPage = $event">
+      </pagination-controls>
+    </div>
+  </section>

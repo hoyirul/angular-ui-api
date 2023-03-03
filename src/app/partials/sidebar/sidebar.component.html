@@ -1,92 +1,541 @@
 <!-- component -->
 <aside
-  class="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
-  <div>
-    <div class="-mx-6 px-6">
-      <a href="#" title="home">
-        <!-- <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/logo.svg" class="w-32" alt="tailus logo"> -->
-        <!-- <h5 class="hidden mt-4 text-xl font-semibold text-red-400 lg:block">Numpy Dash</h5> -->
+  class="ml-[-100%] h-full fixed z-10 top-0 pb-3 px-6 w-full justify-between overflow-auto border-r bg-white transition duration-300 md:w-12/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
+
+  <!-- Logo -->
+  <div class="mt-5 text-center">
+    <img src="./../../../assets/eranger.png" alt=""
+      class=" m-auto rounded-full object-cover lg:w-15 lg:h-15">
+    <!-- <h5 class=" mt-0 text-xl font-semibold text-gray-600 lg:block">Engineering Dashboard Integrity</h5> -->
+    <!-- <span class=" text-gray-400 lg:block">Admin</span> -->
+  </div>
+  <!-- Menu -->
+  <ul class="space-y-2 tracking-wide mt-8 ">
+    <!-- Main Dashboard -->
+    <li>
+      <a [routerLink]="['/home-utility']" routerLinkActive="router-link-active" aria-label="dashboard"
+        class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+        <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
+            class="fill-current text-cyan-400 dark:fill-slate-600"></path>
+          <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
+            class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
+          <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
+            class="fill-current group-hover:text-sky-300"></path>
+        </svg>
+        <span class="-mr-1 font-medium">Main Dashboard</span>
       </a>
-    </div>
-    <div class="mt-10 text-center">
-      <img src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp" alt=""
-        class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28">
-      <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Mighty Cassie</h5>
-      <span class="hidden text-gray-400 lg:block">Administrators</span>
-    </div>
-    
-    <ul class="space-y-2 tracking-wide mt-8">
-      <li>
-        <a [routerLink]="['/']" routerLinkActive="router-link-active" aria-label="dashboard"
-          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-          <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-              class="fill-current text-cyan-400 dark:fill-slate-600"></path>
-            <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
-              class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
-            <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
-              class="fill-current group-hover:text-sky-300"></path>
-          </svg>
-          <span class="-mr-1 font-medium">Dashboard</span>
-        </a>
+    </li>
+    <!-- Utility -->
+    <li>
+      <button  (click)="utilityDropdown()"
+        class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+        </svg>
+        <span class="group-hover:text-gray-700">Utility</span>
+      </button>
+    </li>
+    <div *ngIf="utility">
+      <!-- Sub Menu Energy Performance-->
+      <ul
+        class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+        aria-labelledby="dropdownMenuButton1">
+        <li>            
+          <i class="menu-icon tf-icons bx bx-dock-top"></i>
+          <button  (click)="performanceDropdown()"
+          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+          <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >Energy Performance</a>
+          </button>
+        </li>
+          <div *ngIf="performance">
+            <!-- Monthly -->
+            <li>          
+              <button  (click)="monthlyPerformance()"
+              class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                  d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+              </svg>
+              <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                href="#" >Monthly</a>
+              </button>
+            </li>
+            <div *ngIf="monthly_performance">
+              <!-- Electricity -->
+              <li>       
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" > - Electricity</a>
+                  </button>
+              </li>
+              <!-- Steam -->
+              <li>            
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" > - Steam</a>
+                  </button>
+              </li>
+              <!-- Low Press Compressor -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- Low Press Compressor</a>
+                  </button>
+              </li>   
+              <!-- High Press Compressor -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- High Press Compressor</a>
+                  </button>
+              </li>
+              <!-- Resume Energy -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- Resume Energy</a>
+                </button>
+              </li>
+              <!-- Downtime, MTBF,MTTR -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- Downtime, MTBF, MTTR</a>
+                </button>
+              </li>
+            </div>
+            <!-- Daily -->
+            <li>
+              <button  (click)="dailyPerformance()"
+              class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 18 18" fill="currentColor">
+                <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                  d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+              </svg>
+              <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                href="#" >Daily</a>
+              </button>
+            </li>    
+            <div *ngIf="daily_performance">
+              <!-- Electricity -->
+              <li>       
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" > - Electricity</a>
+                  </button>
+              </li>
+              <!-- Steam -->
+              <li>            
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" > - Steam</a>
+                  </button>
+              </li>
+              <!-- Low Press Compressor -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- Low Press Compressor</a>
+                  </button>
+              </li>   
+              <!-- High Press Compressor -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- High Press Compressor</a>
+                  </button>
+              </li>
+              <!-- Resume Energy -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- Resume Energy</a>
+                </button>
+              </li>
+              <!-- Downtime, MTBF,MTTR -->
+              <li>
+                <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+                <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                  href="#" >- Downtime, MTBF, MTTR</a>
+                </button>
+              </li>
+            </div>
+          </div>
+      </ul>
+
+      <!-- Sub Menu Maintenance Report-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button  (click)="maintenanceDropdown()"
+        class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Maintenance Report</a>
+        </button>
       </li>
-      <li>
-        <a [routerLink]="['/charts']" routerLinkActive="router-link-active"
-          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+      <div *ngIf="maintenance">
+        <!-- Shift Report -->
+        <li>           
+          <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path class="fill-current text-gray-600 group-hover:text-cyan-600"
-              d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+          </svg>
+          <a [routerLink]="['/training-detail']" routerLinkActive="router-link-active" class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="categories" >Shift Report</a>
+          </button>
+        </li>
+        <!-- PDM Report -->
+        <li>
+          <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
             <path class="fill-current text-gray-300 group-hover:text-cyan-300"
               d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-          </svg>
-          <span class="group-hover:text-gray-700">Chart JS</span>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/categories']" routerLinkActive="router-link-active"
-          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd"
-              d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd" />
-            <path class="fill-current text-gray-600 group-hover:text-cyan-600"
-              d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
-          </svg>
-          <span class="group-hover:text-gray-700">Categories</span>
-        </a>
-      </li>
-      <li>
-        <a [routerLink]="['/payments']" routerLinkActive="router-link-active"
-          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd"
-              d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
-              clip-rule="evenodd" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >PDM Report</a>
+            </button>
+        </li>    
+        <!-- Training Report -->
+        <li>
+          <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
             <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-              d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
-          </svg>
-          <span class="group-hover:text-gray-700">Payments</span>
-        </a>
+              d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+          <a  [routerLink]="['/training-detail']" routerLinkActive="router-link-active" class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >Training Report</a>
+            </button>
+        </li>   
+        <!-- AM Report -->
+        <li>
+            <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+            <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+              d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >AM Report</a>
+            </button>
+        </li>
+        <!-- PM Report -->
+        <li>
+            <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+            <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+              d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >PM Report</a>
+            </button>
+        </li>
+      </div>
+      </ul>
+
+      <!-- Sub Menu Monitoring Machine-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button  (click)="monitoringDropdown()"
+        class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Monitoring Machine</a>
+        </button>
       </li>
-      <!-- <li>
-        <a href="#" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+      
+      <div *ngIf="monitoring">
+      <!-- Shift Report -->
+      <li>
+        <button  (click)="criticalDropdown()" class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path class="fill-current text-gray-300 group-hover:text-cyan-300" d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
-            <path class="fill-current text-gray-600 group-hover:text-cyan-600" fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
+          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
           </svg>
-          <span class="group-hover:text-gray-700">Finance</span>
-        </a>
-      </li> -->
-    </ul>
-  </div>
-  <div class="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-    <button class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-      </svg>
-      <span [routerLink]="['/auth/signin']" routerLinkActive="router-link-active"
-        class="group-hover:text-gray-700">Logout</span>
-    </button>
-  </div>
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Critical Machine</a>
+        </button>
+      </li>
+      
+      <div *ngIf="critical">
+          <!-- Boiler -->
+          <li>       
+            <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" > - Boiler</a>
+              </button>
+          </li>
+          <!-- Chiller -->
+          <li>            
+            <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" > - Chiller</a>
+              </button>
+          </li>
+          <!-- Compressor -->
+          <li>
+            <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">    
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >- Compressor</a>
+              </button>
+          </li>   
+          <!-- Substation -->
+          <li>
+            <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >- Substation</a>
+              </button>
+          </li>
+          <!-- WWTP -->
+          <li>
+            <button class="px-5 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >- WWTP</a>
+            </button>
+          </li>
+      </div>
+      <!-- Big 5 Alarm -->
+        <li>
+          <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+          </svg>
+          <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >Big 5 Alarm</a>
+            </button>
+        </li>  
+      <!-- Machine Learning -->
+      <li>
+        <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group"> 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+        <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+          d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+        </svg>
+          <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >Machine Learning</a>
+            </button>
+        </li>  
+      </div>
+      </ul>
+    </div>
+    
+    <!-- Energy -->
+    <li>
+      <i class="menu-icon tf-icons bx bx-dock-top"></i>
+      <button  (click)="energyDropdown()"
+      class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path class="fill-current text-gray-300 group-hover:text-cyan-300" fill-rule="evenodd"
+            d="M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z" clip-rule="evenodd" />
+          <path class="fill-current text-gray-600 group-hover:text-cyan-600"
+            d="M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z" />
+        </svg>
+        <span class="group-hover:text-gray-700">Energy</span>
+        </button>
+    </li>
+    <div *ngIf="energy">
+      <!-- Sub Menu Energy Source-->
+      <ul
+        class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+        aria-labelledby="dropdownMenuButton1">
+        <li>            
+          <i class="menu-icon tf-icons bx bx-dock-top"></i>
+          <button  (click)="energySourceDropdown()"
+          class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+          <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+            href="#" >Energy Source</a>
+          </button>
+        </li>
+          <div *ngIf="energySource">
+            <!-- GJ / KL -->
+            <li>          
+              <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                  d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+              </svg>
+              <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                href="#" >GJ / KL</a>
+              </button>
+            </li>
+            <!-- GJ / Ton -->
+            <li>          
+              <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                  d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+              </svg>
+              <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                href="#" >GJ / Ton</a>
+              </button>
+            </li>
+            <!-- Usage (Ton) -->
+            <li>          
+              <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+                <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                  d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+              </svg>
+              <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+                href="#" >Usage (GJ)</a>
+              </button>
+            </li>
+          </div>
+      </ul>
+
+      <!-- Sub Menu Machine SEU-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button  (click)="machineDropdown()"
+        class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Machine SEU</a>
+        </button>
+      </li>
+        <div *ngIf="machine">
+          <!-- Breakdown Machine -->
+          <li>          
+            <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 25 25" fill="currentColor">
+              <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+              <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >Breakdown Machine</a>
+            </button>
+          </li>
+          <!-- Monthly -->
+          <li>          
+            <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 22 22" fill="currentColor">
+              <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+              <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >Monthly</a>
+            </button>
+          </li>
+          <!-- Daily -->
+          <li>          
+            <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+              <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >Daily</a>
+            </button>
+          </li>
+          
+          <!-- Big 5 -->
+          <li>          
+            <button class="px-10 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+              <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+                d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+            </svg>
+            <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+              href="#" >Big 5</a>
+            </button>
+          </li>
+        </div>
+      </ul>
+
+      
+      <!-- Sub Menu Emission (tCo2e)-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Emission (tCo2e)</a>
+        </button>
+      </li>
+      </ul>
+
+      <!-- Sub Menu TOE (Ton Oil Equivalence)-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >TOE (Ton Oil Eqv)</a>
+        </button>
+      </li>
+      </ul>
+    </div>
+
+    <!-- EHS -->
+    <li>
+      <button  (click)="ehsDropdown()"
+        class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
+            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+        </svg>
+        <span class="group-hover:text-gray-700">EHS</span>
+      </button>
+    </li>
+    <div *ngIf="ehs">
+      <!-- Sub Menu EHS-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Sub Menu EHS</a>
+        </button>
+      </li>
+      </ul>
+
+      <!-- Sub Menu EHS-->
+      <ul
+      class=" z-[1000] float-left m-0  min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg light:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+      aria-labelledby="dropdownMenuButton1">
+      <li>            
+        <i class="menu-icon tf-icons bx bx-dock-top"></i>
+        <button class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group ">
+        <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
+          href="#" >Sub Menu EHS</a>
+        </button>
+      </li>
+      </ul>
+    </div>
+  </ul>
 </aside>

@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DatePipe } from '@angular/common'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxChartsModule }from '@swimlane/ngx-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +23,9 @@ import { CategoryComponent } from './contents/categories/category/category.compo
 import { PaymentComponent } from './contents/payment/payment.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { HomeUtilityComponent } from './utility/home-utility/home-utility.component';
+import { TrainingDetailComponent } from './utility/training-detail/training-detail.component';
+import { TrainingDetailService } from './services/tabel-training/training-detail.service';
 
 @NgModule({
   declarations: [
@@ -36,15 +43,20 @@ import { FormsModule } from '@angular/forms';
     DoughnutComponent,
     CategoryComponent,
     PaymentComponent,
-    FooterComponent
+    FooterComponent,
+    HomeUtilityComponent,
+    TrainingDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
   ],
-  providers: [],
+  providers: [TrainingDetailService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

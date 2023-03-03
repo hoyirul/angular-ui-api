@@ -8,6 +8,8 @@ import { CategoryComponent } from './contents/categories/category/category.compo
 import { ChartsComponent } from './contents/chartjs/charts/charts.component';
 import { HomeComponent } from './contents/home/home.component';
 import { PaymentComponent } from './contents/payment/payment.component';
+import { HomeUtilityComponent } from './utility/home-utility/home-utility.component';
+import { TrainingDetailComponent } from './utility/training-detail/training-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
     { path: 'signup', component: SignupComponent },
   ]},
   { path: 'charts', component: ChartsComponent },
+  { path: 'home-utility', component: HomeUtilityComponent },
+  { path: 'training-detail', component: TrainingDetailComponent},
   { path: 'categories', component: CategoryComponent },
   { path: 'payments', component: PaymentComponent },
   { path: '**', pathMatch: 'full', 

@@ -6,35 +6,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  // Menu Utility
-  utility: boolean = false;
-
-  // Sub Menu Energy Performance Monthly Daily, Maintenance, Critical
+  // UTILITY -> Energy Performance -> electricity, steam, lowpress, highpress, resume, downtime -> Monthly Daily
   performance: boolean = false;
-  monthly_performance: boolean = false;
-  daily_performance: boolean = false;
+  electricity_performance: boolean = false;
+  steam_performance: boolean = false;
+  lowpress_performance: boolean = false;
+  highpress_performance: boolean = false;
+  resume_performance: boolean = false;
+  downtime_performance: boolean = false;
+  
+  // UTILITY -> Maintenance Report -> Shift report, energy report, pdm report, training, am, pm report
   maintenance: boolean = false;
+
+
+  // UTILITY -> Monitoring Report -> Critical Machine, Big 5 Alarm, Machine Learning
   monitoring: boolean = false;
   critical: boolean = false;
   bigFive: boolean = false;
   machine_learning: boolean = false;
 
-  // Menu Energy
-  energy: boolean = false;
-
-  // Sub Menu Energy Source, Machine SEU, Emission, TOE
+  // ENERGY -> Energy Source, Machine SEU, Emission, TOE
   energySource: boolean = false;
   machine: boolean = false;
   emission: boolean = false;
   toe: boolean = false;
 
-  // Menu EHS
+  // EHS
   ehs: boolean = false;
 
-  // Menu Utility
-  utilityDropdown(){
-    this.utility = !this.utility;
-  }
   // Sub Menu Energy Performance
   performanceDropdown(){
     this.performance = !this.performance;
@@ -43,20 +42,73 @@ export class SidebarComponent implements OnInit {
       this.monitoring = false;
     }
   }
-  // Sub-sub Menu Energy Performance Monthly
-  monthlyPerformance(){
-    this.monthly_performance =!this.monthly_performance;
-    if(this.monthly_performance){
-      this.daily_performance = false;
+  // Sub-sub Menu Electricity
+  electricityPerformance(){
+    this.electricity_performance =!this.electricity_performance;
+    if(this.electricity_performance){
+      this.steam_performance = false;
+      this.lowpress_performance = false;
+      this.highpress_performance = false;
+      this.resume_performance = false;
+      this.downtime_performance = false;
     }
   }
-  // Sub-sub Menu Energy Performance Daily
-  dailyPerformance(){
-    this.daily_performance =!this.daily_performance;
-    if(this.daily_performance){
-      this.monthly_performance = false;
+  // Sub-sub Menu Steam
+  steamPerformance(){
+    this.steam_performance =!this.steam_performance;
+    if(this.steam_performance){
+      this.electricity_performance = false;
+      this.lowpress_performance = false;
+      this.highpress_performance = false;
+      this.resume_performance = false;
+      this.downtime_performance = false;
     }
   }
+  // Sub-sub Menu lowpress
+  lowpressPerformance(){
+    this.lowpress_performance =!this.lowpress_performance;
+    if(this.lowpress_performance){
+      this.steam_performance = false;
+      this.electricity_performance = false;
+      this.highpress_performance = false;
+      this.resume_performance = false;
+      this.downtime_performance = false;
+    }
+  }
+  // Sub-sub Menu highpress
+  highpressPerformance(){
+    this.highpress_performance =!this.highpress_performance;
+    if(this.highpress_performance){
+      this.electricity_performance = false;
+      this.lowpress_performance = false;
+      this.steam_performance = false;
+      this.resume_performance = false;
+      this.downtime_performance = false;
+    }
+  }
+  // Sub-sub Menu resume
+  resumePerformance(){
+    this.resume_performance =!this.resume_performance;
+    if(this.resume_performance){
+      this.electricity_performance = false;
+      this.lowpress_performance = false;
+      this.steam_performance = false;
+      this.highpress_performance = false;
+      this.downtime_performance = false;
+    }
+  }
+  // Sub-sub Menu downtime
+  downtimePerformance(){
+    this.downtime_performance =!this.downtime_performance;
+    if(this.downtime_performance){
+      this.steam_performance = false;
+      this.electricity_performance = false;
+      this.highpress_performance = false;
+      this.resume_performance = false;
+      this.lowpress_performance = false;
+    }
+  }
+
   // Sub Menu Maintenance 
   maintenanceDropdown(){
     this.maintenance = !this.maintenance;
@@ -85,11 +137,6 @@ export class SidebarComponent implements OnInit {
   machineLearningDropdown(){
     this.machine_learning = !this.machine_learning;
   }
-
-  // Menu Energy
-  energyDropdown(){
-    this.energy = !this.energy;
-  }
   // Sub Menu energySource
   energySourceDropdown(){
     this.energySource = !this.energySource;
@@ -98,12 +145,10 @@ export class SidebarComponent implements OnInit {
   machineDropdown(){
     this.machine = !this.machine;
   }
-
   // Menu EHS
   ehsDropdown(){
     this.ehs = !this.ehs;
   }
-
   
   ngOnInit(): void {
     

@@ -1,0 +1,148 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ServiceService {
+
+  urlAPIforFile() {
+    return environment.apiURL;
+  }
+
+  //url
+  // private _url: string = "http://192.168.9.47:3100";
+  private _url: string = "http://127.0.0.1:3100";
+
+  constructor(
+    private http: HttpClient
+  ) { }
+  errorHttpHandler(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
+  }
+
+  //ampere
+  getampAux = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getampaux" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getampWwtp = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getampwwtp" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getampWtp = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getampwtp" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getampPump = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getamppump" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getampGt = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getampgt" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getampCt = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getampct" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  
+  //vibration
+  getvibAux = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getvibaux" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getvibWwtp = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getvibwwtp" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getvibWtp = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getvibwtp" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getvibPump = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getvibpump" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getvibGt = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getvibgt" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  getvibCt = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/getvibct" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  
+  //temp
+  gettempAux = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/gettempaux" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  gettempWwtp = (start_time: string, end_time: any) => {
+    return this.http.get(this._url + "/pdm/gettempwwtp" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  gettempWtp = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/gettempwtp" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  gettempPump = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/gettemppump" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  gettempGt = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/gettempgt" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+  gettempCt = (start_time: string, end_time: string) => {
+    return this.http.get(this._url + "/pdm/gettempct" + '?start_time=' + start_time + '&end_time=' + end_time).pipe(
+      catchError(this.errorHttpHandler)
+    )
+  }
+
+}

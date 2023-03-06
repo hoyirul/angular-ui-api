@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeUtilityComponent } from './utility/home-utility/home-utility.component';
 import { TrainingDetailComponent } from './utility/training-detail/training-detail.component';
 import { TrainingDetailService } from './services/tabel-training/training-detail.service';
+import { PdmReportComponent } from './utility/pdm-report/pdm-report.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { TrainingDetailService } from './services/tabel-training/training-detail
     FooterComponent,
     HomeUtilityComponent,
     TrainingDetailComponent,
+    PdmReportComponent,
   ],
   imports: [
     BrowserModule,

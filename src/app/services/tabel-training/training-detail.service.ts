@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment, environments } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 const getFileName = (name: any) => {
   let _urlLink = "http://localhost:4200/utility-energy/"
@@ -69,7 +69,7 @@ export class TrainingDetailService {
     //training
     
     urlAPIforFile() {
-      return environments.apiUrls;
+      return environment.apiURL;
     }
   
     //url

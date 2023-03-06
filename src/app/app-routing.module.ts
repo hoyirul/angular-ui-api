@@ -10,6 +10,7 @@ import { HomeComponent } from './contents/home/home.component';
 import { PaymentComponent } from './contents/payment/payment.component';
 import { HomeUtilityComponent } from './utility/home-utility/home-utility.component';
 import { TrainingDetailComponent } from './utility/training-detail/training-detail.component';
+import { PdmReportComponent } from './utility/pdm-report/pdm-report.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'charts', component: ChartsComponent },
   { path: 'home-utility', component: HomeUtilityComponent },
   { path: 'training-detail', component: TrainingDetailComponent},
+  { path: 'pdm-report',component:PdmReportComponent},
   { path: 'categories', component: CategoryComponent },
   { path: 'payments', component: PaymentComponent },
   { path: '**', pathMatch: 'full', 

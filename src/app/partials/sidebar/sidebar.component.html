@@ -4,18 +4,19 @@
 
   <!-- Logo -->
   <div class="mt-5 text-center">
-    <img src="./../../../assets/eranger.png" alt="" class=" m-auto rounded-full object-cover lg:w-15 lg:h-15">
+    <img src="./../../../assets/img/eranger.png" alt="" class=" m-auto rounded-full object-cover lg:w-15 lg:h-15">
     <!-- <h5 class=" mt-0 text-xl font-semibold text-gray-600 lg:block">Engineering Dashboard Integrity</h5> -->
     <!-- <span class=" text-gray-400 lg:block">Admin</span> -->
   </div>
   <!-- Menu -->
   <ul class="space-y-2 tracking-wide">
     <!-- MAIN DASHBOARD -->
-    <span class="px-4 text-xs text-gray-400">MAIN DASHBOARD</span>
+    <span class="px-1 text-xs text-gray-400">MAIN DASHBOARD</span>
+    <div class="px-6 border-b border-gray-600 "></div>
     <li>
       <a [routerLink]="['/home-utility']" routerLinkActive="router-link-active" aria-label="dashboard"
         class="px-4 mt-5 mb-5 flex items-center space-x-3 rounded-md text-gray-600 group text-sm">
-        <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
+        <!-- <svg class="-ml-1 h-7 w-7" viewBox="0 0 24 24" fill="none">
           <path
             d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
             class="fill-current text-cyan-400 dark:fill-slate-600"></path>
@@ -23,44 +24,48 @@
             class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
           <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
             class="fill-current group-hover:text-sky-300"></path>
-        </svg>
+        </svg> -->
+        <img src="./../../../assets/img/home.png" class="h-7 w-7"alt="">
         <span class="-mr-1 font-sm">Dashboard</span>
       </a>
     </li>
     <!-- UTILITY -->
-    <span class="px-4 text-xs text-gray-400">UTILITY</span>
+    <span class="px-1 text-xs text-gray-400 ">UTILITY</span>
+    <div class="px-6 border-b border-gray-600 "></div>
     <!-- Menu Performance -->
     <li>
       <button (click)="performanceDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
-        <span class="group-hover:text-gray-700 text-sm">Performance</span>
+        <img src="./../../../assets/img/performance.png" class="h-7 w-7"alt="">
+        <span class="group-hover:text-gray-700 text-sm ">Performance</span>
+        <img src="./../../../assets/img/down.png" class="h-5 w-5 " alt="">
       </button>
+
+      
       <!-- Sub Menu Energy Performance -->
-      <div *ngIf="performance">
+      <div *ngIf="performance" >
         <!-- Electricity -->
         <li>
           <button (click)="electricityPerformance()"
-            class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            class="px-12 py-0 flex items-center rounded-md text-gray-600 group">        
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt=""> 
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Electricity</a>
           </button>
         </li>
-        <div *ngIf="electricity_performance">
+        <div *ngIf="electricity">
           <!-- Electricity -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Monthly</a>
+                href="#">Monthly</a>
             </button>
           </li>
           <!-- Steam -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">              
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Daily</a>
+                href="#">Daily</a>
             </button>
           </li>
         </div>
@@ -68,23 +73,26 @@
         <!-- Steam -->
         <li>
           <button (click)="steamPerformance()"
-            class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Steam</a>
           </button>
         </li>
-        <div *ngIf="steam_performance">
+        <div *ngIf="steam">
           <!-- Steam Monthly -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Monthly</a>
+                href="#">Monthly</a>
             </button>
           </li>
           <!-- Steam Daily -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Daily</a>
+                href="#">Daily</a>
             </button>
           </li>
         </div>
@@ -92,23 +100,26 @@
         <!-- Low Press -->
         <li>
           <button (click)="lowpressPerformance()"
-            class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            class="px-12 py-0 flex items-center rounded-md text-gray-600 group">                    
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Low Press</a>
           </button>
         </li>
-        <div *ngIf="lowpress_performance">
+        <div *ngIf="lowpress">
           <!-- Low Press Monthly -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group"> 
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Monthly</a>
+                href="#">Monthly</a>
             </button>
           </li>
           <!-- Low Press Daily -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group"> 
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Daily</a>
+                href="#">Daily</a>
             </button>
           </li>
         </div>
@@ -117,23 +128,26 @@
         <!-- High Press -->
         <li>
           <button (click)="highpressPerformance()"
-            class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">High Press</a>
           </button>
         </li>
-        <div *ngIf="highpress_performance">
+        <div *ngIf="highpress">
           <!-- High Press Monthly-->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Monthly</a>
+                href="#">Monthly</a>
             </button>
           </li>
           <!-- High Press Daily -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Daily</a>
+                href="#">Daily</a>
             </button>
           </li>
         </div>
@@ -141,23 +155,26 @@
         <!-- Resume Energy-->
         <li>
           <button (click)="resumePerformance()"
-            class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Resume Energy</a>
           </button>
         </li>
-        <div *ngIf="resume_performance">
+        <div *ngIf="resume">
           <!-- Resume Energy Monthly -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Monthly</a>
+                href="#">Monthly</a>
             </button>
           </li>
           <!-- Resume Energy Daily -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Daily</a>
+                href="#">Daily</a>
             </button>
           </li>
         </div>
@@ -165,23 +182,26 @@
         <!-- Downtime-->
         <li>
           <button (click)="downtimePerformance()"
-            class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Downtime</a>
           </button>
         </li>
-        <div *ngIf="downtime_performance">
+        <div *ngIf="downtime">
           <!-- Downtime Monthly -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group"> 
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Monthly</a>
+                href="#">Monthly</a>
             </button>
           </li>
           <!-- Downtime Daily -->
           <li>
-            <button class="px-12 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+            <button class="px-20 py-0 flex items-center rounded-md text-gray-600 group">
+              <img src="./../../../assets/img/full-stop.png" class="h-5 w-5"alt="">
               <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600"
-                href="#"> - Daily</a>
+                href="#">Daily</a>
             </button>
           </li>
         </div>
@@ -190,40 +210,41 @@
 
     <!-- Menu Report -->
     <li>
-      <button (click)="maintenanceDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+      <button (click)="reportDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
+        <img src="./../../../assets/img/report.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Report</span>
+        <img src="./../../../assets/img/down.png" class="h-5 w-5 "alt="">
       </button>
-      <!-- Sub Menu Energy maintenance -->
-      <div *ngIf="maintenance">
+      <!-- Sub Menu Energy report -->
+      <div *ngIf="report">
         <!-- Energy Report -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Energy Report</a>
           </button>
         </li>
 
         <!-- Shift Report -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Shift Report</a>
           </button>
         </li>
 
         <!-- PDM Report -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600" href="pdm-report">PDM Report</a>
           </button>
         </li>
 
         <!-- Training Report -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600" href="training-detail">Training Report</a>
           </button>
         </li>
@@ -231,14 +252,16 @@
 
         <!-- AM Report -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">            
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">AM Report</a>
           </button>
         </li>
         
         <!-- PM Report-->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">PM Report</a>
           </button>
         </li>
@@ -248,32 +271,32 @@
     <!-- Menu Monitoring -->
     <li>
       <button (click)="monitoringDropdown()" class="px-4 mt-5 mb-5 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
-        <span class="group-hover:text-gray-700 text-sm">Monitoring</span>
+        <img src="./../../../assets/img/monitoring.png" class="h-7 w-7"alt="">
+        <span class="group-hover:text-gray-700 text-sm">Monitoring</span>        
+        <img src="./../../../assets/img/down.png" class="h-5 w-5"alt="">
       </button>
       <!-- Sub Menu Energy monitoring -->
       <div *ngIf="monitoring">
         <!-- Critical Machine -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Critical Machine</a>
           </button>
         </li>
 
         <!-- Big 5 Alarm -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Big 5 Alarm</a>
           </button>
         </li>
 
         <!-- Machine Learning -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Machine Learning</a>
           </button>
         </li>
@@ -281,36 +304,37 @@
     </li>
 
   <!-- ENERGY -->
-    <span class="px-4 text-xs mt-5 mb-5 text-gray-400">ENERGY</span>
-    <!-- Menu energySource -->
+    <span class="px-1 text-xs mt-5 mb-5 text-gray-400">ENERGY</span>
+    <div class="px-6 border-b border-gray-600 "></div>
+    <!-- Menu energy_source -->
     <li>
       <button (click)="energySourceDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/energy.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Energy Source</span>
+        <img src="./../../../assets/img/down.png" class="h-5 w-5"alt="">
       </button>
-      <!-- Sub Menu Energy energySource -->
-      <div *ngIf="energySource">
+      <!-- Sub Menu Energy energy_source -->
+      <div *ngIf="energy_source">
         <!-- GJ / KL -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">GJ / KL</a>
           </button>
         </li>
 
         <!-- GJ / Ton -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">GJ / Ton</a>
           </button>
         </li>
 
         <!-- Usage (GJ) -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Usage (GJ)</a>
           </button>
         </li>
@@ -319,33 +343,33 @@
 
     <!-- Menu Machine SEU -->
     <li>
-      <button (click)="machineDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+      <button (click)="machineSeuDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
+        <img src="./../../../assets/img/machine2.png" class="h-7 w-7" alt="">
         <span class="group-hover:text-gray-700 text-sm">Machine SEU</span>
+        <img src="./../../../assets/img/down.png" class="h-5 w-5"alt="">
       </button>
       <!-- Sub Menu Energy machine -->
       <div *ngIf="machine">
         <!-- Machine SEU -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Breakdown Machine</a>
           </button>
         </li>
 
         <!-- Monthly -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Monthly</a>
           </button>
         </li>
 
         <!-- Yearly -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Yearly</a>
           </button>
         </li>
@@ -353,7 +377,8 @@
 
         <!-- Big 5 -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">            
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Big 5</a>
           </button>
         </li>
@@ -363,11 +388,7 @@
     <!-- Menu Emission (tCo2e) -->
     <li>
       <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/emission.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Emission (tCo2e)</span>
       </button>
     </li>
@@ -375,39 +396,35 @@
     <!-- Menu TOE (Ton Oil Eqv) -->
     <li>
       <button class="px-4 mt-5 mb-5 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/toe.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">TOE (Ton Oil Eqv)</span>
       </button>
     </li>
 
   <!-- EHS & BUILDING -->
-    <span class="px-4 text-xs mt-5 mb-5 text-gray-400">EHS & BUILDING</span>
+    <span class="px-1 text-xs mt-5 mb-5 text-gray-400">EHS & BUILDING</span>
+    <div class="px-6 border-b border-gray-600 "></div>
     <!-- Menu ehs -->
     <li>
-      <button (click)="ehsDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+      <button (click)="wwtpDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
+        <img src="./../../../assets/img/wwtp.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">PerformaWWTP</span>
+        <img src="./../../../assets/img/down.png" class="h-5 w-5"alt="">
       </button>
       <!-- Sub Menu Energy PerformaWWTP -->
-      <div *ngIf="ehs">
+      <div *ngIf="wwtp">
         <!-- Inlet -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Inlet</a>
           </button>
         </li>
 
         <!-- Outlet -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">            
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Outlet</a>
           </button>
         </li>
@@ -416,26 +433,25 @@
 
     <!-- Menu Klinik Report -->
     <li>
-      <button (click)="machineDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+      <button (click)="klinikDropdown()" class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
+        <img src="./../../../assets/img/klinik.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Klinik Report</span>
+        <img src="./../../../assets/img/down.png" class="h-5 w-5"alt="">
       </button>
       <!-- Sub Menu Energy machine -->
-      <div *ngIf="machine">
+      <div *ngIf="klinik">
         <!-- Klinik Report Monthly-->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Monthly</a>
           </button>
         </li>
 
         <!-- Klinik Report Daily -->
         <li>
-          <button class="px-8 py-0 flex items-center space-x-4 rounded-md text-gray-600 group">
+          <button class="px-12 py-0 flex items-center rounded-md text-gray-600 group">
+            <img src="./../../../assets/img/because.png" class="h-5 w-5 " alt="">
             <a class="block w-full whitespace-nowrap bg-transparent py-2 px-4 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 light:text-neutral-200 light:hover:bg-neutral-600">Daily</a>
           </button>
         </li>
@@ -445,11 +461,7 @@
     <!-- Menu Limbah B3 -->
     <li>
       <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/limbah.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Limbah B3</span>
       </button>
     </li>
@@ -457,11 +469,7 @@
     <!-- Menu Monitoring Hydrant -->
     <li>
       <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/hydrant.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Hydrant</span>
       </button>
     </li>
@@ -469,11 +477,7 @@
     <!-- Menu Job Order Mtc Building -->
     <li>
       <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/job.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Job Order Mtc</span>
       </button>
     </li>    
@@ -481,11 +485,7 @@
     <!-- Menu Monitoring Kotak P3K -->
     <li>
       <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/p3k.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Kotak P3K</span>
       </button>
     </li>    
@@ -493,12 +493,16 @@
     <!-- Menu Update K3 (Monthly) -->
     <li>
       <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path class="fill-current text-gray-600 group-hover:text-cyan-600" d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-          <path class="fill-current text-gray-300 group-hover:text-cyan-300"
-            d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
-        </svg>
+        <img src="./../../../assets/img/updatek3.png" class="h-7 w-7"alt="">
         <span class="group-hover:text-gray-700 text-sm">Update K3</span>
+      </button>
+    </li>    
+
+    <!-- Menu Sertifikasi -->
+    <li>
+      <button class="px-4 mt-5 mb-3 flex items-center space-x-3 rounded-md text-gray-600 group">
+        <img src="./../../../assets/img/sertifikasi.png" class="h-7 w-7"alt="">
+        <span class="group-hover:text-gray-700 text-sm">Sertifikasi</span>
       </button>
     </li>    
   </ul>

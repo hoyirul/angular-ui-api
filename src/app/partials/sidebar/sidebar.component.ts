@@ -6,115 +6,122 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  ngOnInit(): void {
+  }
+
   // UTILITY -> Energy Performance -> electricity, steam, lowpress, highpress, resume, downtime -> Monthly Daily
   performance: boolean = false;
-  electricity_performance: boolean = false;
-  steam_performance: boolean = false;
-  lowpress_performance: boolean = false;
-  highpress_performance: boolean = false;
-  resume_performance: boolean = false;
-  downtime_performance: boolean = false;
+  electricity: boolean = false;
+  steam: boolean = false;
+  lowpress: boolean = false;
+  highpress: boolean = false;
+  resume: boolean = false;
+  downtime: boolean = false;
   
   // UTILITY -> Maintenance Report -> Shift report, energy report, pdm report, training, am, pm report
-  maintenance: boolean = false;
-
+  report: boolean = false;
+  energy_report: boolean = false;
 
   // UTILITY -> Monitoring Report -> Critical Machine, Big 5 Alarm, Machine Learning
   monitoring: boolean = false;
-  critical: boolean = false;
-  bigFive: boolean = false;
-  machine_learning: boolean = false;
 
   // ENERGY -> Energy Source, Machine SEU, Emission, TOE
-  energySource: boolean = false;
+  energy_source: boolean = false;
   machine: boolean = false;
-  emission: boolean = false;
-  toe: boolean = false;
 
-  // EHS
-  ehs: boolean = false;
+  // EHS -> PerformaWWTP, Klinik Report dll
+  wwtp: boolean = false;
+  klinik: boolean = false;
+
+  // Sub-sub Menu Electricity
+  electricityPerformance(){
+    this.electricity =!this.electricity;
+    if(this.electricity){
+      this.steam = false;
+      this.lowpress = false;
+      this.highpress = false;
+      this.resume = false;
+      this.downtime = false;
+    }
+  }
+  // Sub-sub Menu Steam
+  steamPerformance(){
+    this.steam =!this.steam;
+    if(this.steam){
+      this.electricity = false;
+      this.lowpress = false;
+      this.highpress = false;
+      this.resume = false;
+      this.downtime = false;
+    }
+  }
+  // Sub-sub Menu lowpress
+  lowpressPerformance(){
+    this.lowpress =!this.lowpress;
+    if(this.lowpress){
+      this.steam = false;
+      this.electricity = false;
+      this.highpress = false;
+      this.resume = false;
+      this.downtime = false;
+    }
+  }
+  // Sub-sub Menu highpress
+  highpressPerformance(){
+    this.highpress =!this.highpress;
+    if(this.highpress){
+      this.electricity = false;
+      this.lowpress = false;
+      this.steam = false;
+      this.resume = false;
+      this.downtime = false;
+    }
+  }
+  // Sub-sub Menu resume
+  resumePerformance(){
+    this.resume =!this.resume;
+    if(this.resume){
+      this.electricity = false;
+      this.lowpress = false;
+      this.steam = false;
+      this.highpress = false;
+      this.downtime = false;
+    }
+  }
+  // Sub-sub Menu downtime
+  downtimePerformance(){
+    this.downtime =!this.downtime;
+    if(this.downtime){
+      this.steam = false;
+      this.electricity = false;
+      this.highpress = false;
+      this.resume = false;
+      this.lowpress = false;
+    }
+  }
 
   // Sub Menu Energy Performance
   performanceDropdown(){
     this.performance = !this.performance;
     if(this.performance){
-      this.maintenance = false;
+      this.report = false;
       this.monitoring = false;
+      this.machine = false;
+      this.energy_source = false;
+      this.klinik=false;
+      this.wwtp=false;
     }
   }
-  // Sub-sub Menu Electricity
-  electricityPerformance(){
-    this.electricity_performance =!this.electricity_performance;
-    if(this.electricity_performance){
-      this.steam_performance = false;
-      this.lowpress_performance = false;
-      this.highpress_performance = false;
-      this.resume_performance = false;
-      this.downtime_performance = false;
-    }
-  }
-  // Sub-sub Menu Steam
-  steamPerformance(){
-    this.steam_performance =!this.steam_performance;
-    if(this.steam_performance){
-      this.electricity_performance = false;
-      this.lowpress_performance = false;
-      this.highpress_performance = false;
-      this.resume_performance = false;
-      this.downtime_performance = false;
-    }
-  }
-  // Sub-sub Menu lowpress
-  lowpressPerformance(){
-    this.lowpress_performance =!this.lowpress_performance;
-    if(this.lowpress_performance){
-      this.steam_performance = false;
-      this.electricity_performance = false;
-      this.highpress_performance = false;
-      this.resume_performance = false;
-      this.downtime_performance = false;
-    }
-  }
-  // Sub-sub Menu highpress
-  highpressPerformance(){
-    this.highpress_performance =!this.highpress_performance;
-    if(this.highpress_performance){
-      this.electricity_performance = false;
-      this.lowpress_performance = false;
-      this.steam_performance = false;
-      this.resume_performance = false;
-      this.downtime_performance = false;
-    }
-  }
-  // Sub-sub Menu resume
-  resumePerformance(){
-    this.resume_performance =!this.resume_performance;
-    if(this.resume_performance){
-      this.electricity_performance = false;
-      this.lowpress_performance = false;
-      this.steam_performance = false;
-      this.highpress_performance = false;
-      this.downtime_performance = false;
-    }
-  }
-  // Sub-sub Menu downtime
-  downtimePerformance(){
-    this.downtime_performance =!this.downtime_performance;
-    if(this.downtime_performance){
-      this.steam_performance = false;
-      this.electricity_performance = false;
-      this.highpress_performance = false;
-      this.resume_performance = false;
-      this.lowpress_performance = false;
-    }
-  }
-
-  // Sub Menu Maintenance 
-  maintenanceDropdown(){
-    this.maintenance = !this.maintenance;
-    if(this.maintenance){
+  // Sub Menu report 
+  reportDropdown(){
+    this.report = !this.report;
+    if(this.report){
       this.performance = false;
       this.monitoring = false;
+      this.energy_source = false;
+      this.machine = false;
+      this.klinik=false;
+      this.wwtp=false;
     }
   }
   // Sub Menu Monitoring 
@@ -122,35 +129,61 @@ export class SidebarComponent implements OnInit {
     this.monitoring = !this.monitoring;
     if(this.monitoring){
       this.performance = false;
-      this.maintenance = false;
+      this.report = false;
+      this.energy_source = false;
+      this.machine = false;
+      this.klinik=false;
+      this.wwtp=false;
     }
   }
-  // Sub-sub Menu Monitoring Critical
-  criticalDropdown(){
-    this.critical = !this.critical;
-  }
-  // Sub-sub Menu Monitoring big Five
-  bigFivelDropdown(){
-    this.bigFive = !this.bigFive;
-  }
-  // Sub-sub Menu Monitoring Machine Learning
-  machineLearningDropdown(){
-    this.machine_learning = !this.machine_learning;
-  }
-  // Sub Menu energySource
+
+  // Sub Menu energy_source 
   energySourceDropdown(){
-    this.energySource = !this.energySource;
+    this.energy_source = !this.energy_source;
+    if(this.energy_source){
+      this.performance = false;
+      this.report = false;
+      this.monitoring = false;
+      this.machine = false;
+      this.klinik=false;
+      this.wwtp=false;
+    }
   }
-  // 
-  machineDropdown(){
+  // Sub Menu machine 
+  machineSeuDropdown(){
     this.machine = !this.machine;
+    if(this.machine){
+      this.energy_source = false;
+      this.performance = false;
+      this.report = false;
+      this.monitoring = false;
+      this.klinik=false;
+      this.wwtp=false;
+    }
   }
+
   // Menu EHS
-  ehsDropdown(){
-    this.ehs = !this.ehs;
+  wwtpDropdown(){
+    this.wwtp = !this.wwtp;
+    if(this.wwtp){
+      this.machine = false;
+      this.energy_source = false;
+      this.performance = false;
+      this.report = false;
+      this.monitoring = false;
+      this.klinik=false;
+    }
   }
-  
-  ngOnInit(): void {
-    
+ 
+  klinikDropdown(){
+    this.klinik = !this.klinik;
+    if(this.klinik){
+      this.wwtp = false;
+      this.machine = false;
+      this.energy_source = false;
+      this.performance = false;
+      this.report = false;
+      this.monitoring = false;
+    }
   }
 }

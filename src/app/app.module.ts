@@ -29,6 +29,16 @@ import { TrainingDetailService } from './services/tabel-training/training-detail
 import { PdmReportComponent } from './utility/pdm-report/pdm-report.component';
 import { ElectricityMonthlyComponent } from './utility/electricity-monthly/electricity-monthly.component';
 import { AmReportComponent } from './utility/am-report/am-report.component';
+import { ElectricityDailyOc1Component } from './utility/electricity-daily-oc1/electricity-daily-oc1.component';
+import { ElectricityDailyOc2Component } from './utility/electricity-daily-oc2/electricity-daily-oc2.component';
+import { WaterDailyComponent } from './utility/water-daily/water-daily.component';
+import { WaterMonthlyComponent } from './utility/water-monthly/water-monthly.component';
+import { SteamMonthlyComponent } from './utility/steam-monthly/steam-monthly.component';
+import { SteamDailyComponent } from './utility/steam-daily/steam-daily.component';
+import { LowpressMonthlyComponent } from './utility/lowpress-monthly/lowpress-monthly.component';
+import { LowpressDailyComponent } from './utility/lowpress-daily/lowpress-daily.component';
+import { HighpressMonthlyComponent } from './utility/highpress-monthly/highpress-monthly.component';
+import { HighpressDailyComponent } from './utility/highpress-daily/highpress-daily.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +62,16 @@ import { AmReportComponent } from './utility/am-report/am-report.component';
     PdmReportComponent,
     ElectricityMonthlyComponent,
     AmReportComponent,
+    ElectricityDailyOc1Component,
+    ElectricityDailyOc2Component,
+    WaterDailyComponent,
+    WaterMonthlyComponent,
+    SteamMonthlyComponent,
+    SteamDailyComponent,
+    LowpressMonthlyComponent,
+    LowpressDailyComponent,
+    HighpressMonthlyComponent,
+    HighpressDailyComponent,
   ],
   imports: [
     BrowserModule,

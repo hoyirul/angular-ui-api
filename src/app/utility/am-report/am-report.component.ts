@@ -8,22 +8,23 @@ import { ServiceService } from '../../services/service.service'
 })
 export class AmReportComponent {
 
+  // FILTER OPEN CLOSE
+  filterTerm:any;
+  // DATA ACTIVITY
+  activity_report: any = []
+  public data_am: any
+  // PAGE NUMBER
   showPageaux = 5
   itemsPerPage: number = 0;
   currentPage: number = 1;
   absoluteIndex(indexOnPage: number): number {
     return this.itemsPerPage * (this.currentPage - 1) + indexOnPage;
   }
-  filterTerm:any;
-  // filterTermm:number=0;
-  constructor(private _service: ServiceService,) {
 
+  constructor(private _service: ServiceService,) {
   }
 
-  activity_report: any = []
-  public data_am: any
   ngOnInit(): void {
-
     this._service.getautonomous().subscribe(
       (data: any) => {
         this.data_am = data.data.all

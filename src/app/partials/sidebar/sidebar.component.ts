@@ -39,6 +39,7 @@ export class SidebarComponent implements OnInit {
     this.water =!this.water;
     if(this.water){
       this.steam = false;
+      this.electricity = false;
       this.lowpress = false;
       this.highpress = false;
       this.resume = false;
@@ -49,6 +50,7 @@ export class SidebarComponent implements OnInit {
   electricityPerformance(){
     this.electricity =!this.electricity;
     if(this.electricity){
+      this.water = false;
       this.steam = false;
       this.lowpress = false;
       this.highpress = false;
@@ -60,6 +62,7 @@ export class SidebarComponent implements OnInit {
   steamPerformance(){
     this.steam =!this.steam;
     if(this.steam){
+      this.water = false;
       this.electricity = false;
       this.lowpress = false;
       this.highpress = false;
@@ -71,6 +74,7 @@ export class SidebarComponent implements OnInit {
   lowpressPerformance(){
     this.lowpress =!this.lowpress;
     if(this.lowpress){
+      this.water = false;
       this.steam = false;
       this.electricity = false;
       this.highpress = false;
@@ -82,6 +86,7 @@ export class SidebarComponent implements OnInit {
   highpressPerformance(){
     this.highpress =!this.highpress;
     if(this.highpress){
+      this.water = false;
       this.electricity = false;
       this.lowpress = false;
       this.steam = false;
@@ -93,6 +98,7 @@ export class SidebarComponent implements OnInit {
   resumePerformance(){
     this.resume =!this.resume;
     if(this.resume){
+      this.water = false;
       this.electricity = false;
       this.lowpress = false;
       this.steam = false;
@@ -104,6 +110,7 @@ export class SidebarComponent implements OnInit {
   downtimePerformance(){
     this.downtime =!this.downtime;
     if(this.downtime){
+      this.water = false;
       this.steam = false;
       this.electricity = false;
       this.highpress = false;

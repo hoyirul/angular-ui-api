@@ -9,8 +9,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // UTILITY -> Energy Performance -> electricity, steam, lowpress, highpress, resume, downtime -> Monthly Daily
+  // UTILITY -> Energy Performance -> water, electricity, steam, lowpress, highpress, resume, downtime -> Monthly Daily
   performance: boolean = false;
+  water: boolean = false;
   electricity: boolean = false;
   steam: boolean = false;
   lowpress: boolean = false;
@@ -33,6 +34,17 @@ export class SidebarComponent implements OnInit {
   wwtp: boolean = false;
   klinik: boolean = false;
 
+  // Sub-sub Menu water
+  waterPerformance(){
+    this.water =!this.water;
+    if(this.water){
+      this.steam = false;
+      this.lowpress = false;
+      this.highpress = false;
+      this.resume = false;
+      this.downtime = false;
+    }
+  }
   // Sub-sub Menu Electricity
   electricityPerformance(){
     this.electricity =!this.electricity;

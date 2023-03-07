@@ -27,6 +27,8 @@ import { HomeUtilityComponent } from './utility/home-utility/home-utility.compon
 import { TrainingDetailComponent } from './utility/training-detail/training-detail.component';
 import { TrainingDetailService } from './services/tabel-training/training-detail.service';
 import { PdmReportComponent } from './utility/pdm-report/pdm-report.component';
+import { ElectricityMonthlyComponent } from './utility/electricity-monthly/electricity-monthly.component';
+import { AmReportComponent } from './utility/am-report/am-report.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { PdmReportComponent } from './utility/pdm-report/pdm-report.component';
     HomeUtilityComponent,
     TrainingDetailComponent,
     PdmReportComponent,
+    ElectricityMonthlyComponent,
+    AmReportComponent,
   ],
   imports: [
     BrowserModule,

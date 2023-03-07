@@ -145,4 +145,10 @@ export class ServiceService {
     )
   }
 
+    //autonomous
+    getautonomous = () => {
+      return this.http.get(this._url + "/am/getautonomous").pipe(
+        catchError(this.errorHttpHandler)
+      )
+    }
 }
